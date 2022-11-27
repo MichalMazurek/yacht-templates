@@ -4,7 +4,7 @@
         "title": "HEIMDALL",
         "name": "heimdall",
         "description": "As the name suggests Heimdall Application Dashboard is a dashboard for all your web applications. It doesn't need to be limited to applications though, you can add links to anything you like.",
-        "logo": "https://github.com/MichalMazurek/yacht-templates/blob/main/logos/heimdall.png?raw=true",
+        "logo": "https://raw.githubusercontent.com/MichalMazurek/yacht-templates/main/logos/heimdall.png",
         "image": "lscr.io/linuxserver/heimdall:latest",
         "categories": [
             "Dashboard"

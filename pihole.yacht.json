@@ -1,0 +1,52 @@
+[
+    {
+        "type": 1,
+        "title": "Pi-hole",
+        "name": "pihole",
+        "description": "Pi-hole is a Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole and optionally a DHCP server, intended for use on a private network. It is designed for low-power embedded devices with network capability, such as the Raspberry Pi, but supports any Linux machines.",
+        "logo": "https://raw.githubusercontent.com/MichalMazurek/yacht-templates/main/logos/pi-hole.jpg",
+        "image": "pihole/pihole:latest",
+        "categories": [
+            "DNS",
+            "DHCP",
+            "Ads Block"
+        ],
+        "platform": "linux",
+        "restart_policy": "unless-stopped",
+        "ports": [
+            {
+                "DNS TCP": "53:53/tcp",
+                "DNS UDP": "53:53/udp",
+                "DHCP": "67:67/udp",
+                "WebUI": ":80/tcp"
+            }
+        ],
+        "volumes": [
+            {
+                "container": "/etc/pihole",
+                "bind": "!config/pihole/etc-pihole"
+            },
+            {
+                "container": "/etc/dnsmasq.d",
+                "bind": "!config/pihole/etc-dnsmasq.d"
+            }
+        ],
+        "cap_add": [
+            "NET_ADMIN"
+        ],
+        "env": [
+            {
+                "name": "TZ",
+                "label": "TZ",
+                "description": "Time zone",
+                "default": "Europe/London"
+            },
+            {
+                "name": "WEBPASSWORD",
+                "label": "WEBPASSWORD",
+                "description": "random if not set",
+                "default": "CHANGEME"
+            }
+        ]
+    }
+]
